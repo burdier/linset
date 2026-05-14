@@ -1,0 +1,454 @@
+:root {
+  color: #172033;
+  background: #f4f1ff;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 214, 112, 0.48), transparent 28rem),
+    radial-gradient(circle at 85% 15%, rgba(109, 93, 252, 0.28), transparent 26rem),
+    linear-gradient(135deg, #fbf7ff 0%, #eef7ff 55%, #fff8ec 100%);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 24px 80px rgba(82, 68, 152, 0.15);
+  backdrop-filter: blur(18px);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  padding: 34px;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -80px -110px auto;
+  width: 290px;
+  height: 290px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffb86c, #f96d94);
+  opacity: 0.18;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #6d5dfc;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2.7rem, 7vw, 5.7rem);
+  line-height: 0.92;
+  letter-spacing: -0.08em;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  margin-bottom: 14px;
+}
+
+.hero-copy {
+  max-width: 620px;
+  margin-bottom: 0;
+  color: #647089;
+  font-size: 1.08rem;
+}
+
+.hero-meter {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  flex: 0 0 170px;
+  width: 170px;
+  height: 170px;
+  border-radius: 999px;
+  background: conic-gradient(#6d5dfc calc(var(--meter, 1) * 1%), #e7e3ff 0);
+  box-shadow: inset 0 0 0 15px rgba(255,255,255,0.8), 0 18px 40px rgba(109, 93, 252, 0.25);
+}
+
+.hero-meter span {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.hero-meter small {
+  margin-top: -46px;
+  color: #647089;
+  font-weight: 700;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.stat {
+  padding: 24px;
+}
+
+.stat span,
+label,
+.muted,
+.empty,
+.payment-row small,
+.debt-info small {
+  color: #69758e;
+}
+
+.stat strong {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  letter-spacing: -0.05em;
+}
+
+.stat.paid strong {
+  color: #0f9f6e;
+}
+
+.stat.pending strong {
+  color: #f06a3d;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr 1.35fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.panel {
+  padding: 24px;
+}
+
+.section-title,
+.debt-header,
+.progress-labels,
+.tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.stack,
+.payment-form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #e2e7f2;
+  border-radius: 16px;
+  outline: 0;
+  background: rgba(255, 255, 255, 0.9);
+  color: #172033;
+  padding: 13px 14px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #8f84ff;
+  box-shadow: 0 0 0 5px rgba(109, 93, 252, 0.12);
+}
+
+.two-cols,
+.payment-form {
+  grid-template-columns: 1fr 0.65fr;
+}
+
+.primary,
+.ghost,
+.danger {
+  border-radius: 16px;
+  padding: 13px 16px;
+  font-weight: 900;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary:hover,
+.ghost:hover,
+.danger:hover,
+.debt-item:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: linear-gradient(135deg, #6d5dfc, #9a61ff);
+  color: white;
+  box-shadow: 0 12px 28px rgba(109, 93, 252, 0.25);
+}
+
+.primary.small {
+  padding: 10px 14px;
+}
+
+.ghost {
+  background: #f2f0ff;
+  color: #594be3;
+}
+
+.danger {
+  background: #fff0ef;
+  color: #d84035;
+}
+
+.tools {
+  margin-top: 18px;
+}
+
+.import-box {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.error {
+  margin: 0;
+  color: #d84035;
+  font-weight: 800;
+}
+
+.pill {
+  border-radius: 999px;
+  background: #edf8f4;
+  color: #0f9f6e;
+  padding: 8px 11px;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.debt-list,
+.timeline {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.debt-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  border: 1px solid #edf0f7;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 14px;
+  text-align: left;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.debt-item.active {
+  border-color: #9e95ff;
+  background: #f6f4ff;
+}
+
+.emoji {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: #fff3d8;
+  font-size: 1.45rem;
+}
+
+.debt-info {
+  display: grid;
+  gap: 6px;
+}
+
+.percent {
+  color: #6d5dfc;
+  font-weight: 900;
+}
+
+.progress {
+  display: block;
+  overflow: hidden;
+  height: 9px;
+  border-radius: 999px;
+  background: #e7eaf3;
+}
+
+.progress i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #15c88d, #6d5dfc);
+  transition: width 0.35s ease;
+}
+
+.detail-panel {
+  min-height: 540px;
+}
+
+.debt-header {
+  align-items: start;
+}
+
+.big-progress {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.big-progress .progress {
+  height: 17px;
+}
+
+.payment-form {
+  align-items: end;
+  grid-template-columns: 0.85fr 0.8fr 1fr auto;
+  border: 1px solid #edf0f7;
+  border-radius: 22px;
+  background: rgba(250, 251, 255, 0.72);
+  padding: 16px;
+}
+
+.payment-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #edf0f7;
+  padding: 0 0 12px;
+}
+
+.payment-row strong,
+.payment-row small {
+  display: block;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #fff0ef;
+  color: #d84035;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.empty {
+  margin: 18px 0 0;
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .layout,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .note-field,
+  .payment-form .primary {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding: 16px 0;
+  }
+
+  .hero,
+  .section-title,
+  .debt-header,
+  .progress-labels,
+  .tools {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-meter {
+    align-self: center;
+  }
+
+  .two-cols,
+  .payment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    border-radius: 22px;
+  }
+}
